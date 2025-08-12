@@ -94,5 +94,36 @@
             @endforeach
         </tbody>
     </table>
+
+@if($porDia->isNotEmpty())
+    <br><br>
+    <h4>Operarios "Por día"</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>FUNCIÓN</th>
+                <th>No#</th>
+                <th>Nombre</th>
+                <th>CAT</th>
+                <th>MF</th>
+                <th>GCT</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($porDia as $asignacion)
+                <tr>
+                    <td>{{ $asignacion->puesto->nombre }}</td>
+                    <td class="text-center">{{ $asignacion->operario->legajo ?? '' }}</td>
+                    <td>{{ $asignacion->operario->nombre_completo ?? '' }}</td>
+                    <td class="text-center">{{ $asignacion->categoria_operario ?? '' }}</td>
+                    <td class="text-center">{{ $asignacion->categoria_mayor ?? '' }}</td>
+                    <td class="text-center">{{ $asignacion->categoria_puesto ?? '' }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endif
+
+
 </body>
 </html>

@@ -36,23 +36,33 @@ class PlanillaZafraPdfController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-    {
-        // Cargamos las relaciones necesarias
-        $planilla = PlanillaZafra::with([
-            'zafra',
-            'solicitante',
-            'sector',
-            'asignaciones.puesto',
-            'asignaciones.operario'
-        ])->findOrFail($id);
-        //dd($planilla );
-        // Generamos el PDF
-        $pdf = Pdf::loadView('pdf.planilla-zafra', compact('planilla'))
-                 ->setPaper('a4', 'landscape'); // Horizontal como en tu ejemplo
+public function show($id)
+{
+    $planilla = PlanillaZafra::with([
+        'zafra',
+        'solicitante',
+        'sector',
+        'asignaciones.puesto',
+        'asignaciones.operario'
+    ])->findOrFail($id);
 
-        return $pdf->stream("PlanillaZafra_{$planilla->id}.pdf");
-    }
+    // Filtramos asignaciones por día
+    $porDia = $planilla->asignaciones->where('turno', 'Por día');
+
+    // Asignaciones sin los "Por día"
+    $asignacionesPrincipales = $planilla->asignaciones->where('turno', '!=', 'Por día');
+
+    // Reemplazamos la colección original por las filtradas para la tabla principal
+    $planilla->setRelation('asignaciones', $asignacionesPrincipales);
+
+    $pdf = Pdf::loadView('pdf.planilla-zafra', [
+        'planilla' => $planilla,
+        'porDia' => $porDia, // le pasamos la colección aparte
+    ])->setPaper('a4', 'landscape');
+
+    return $pdf->stream("PlanillaZafra_{$planilla->id}.pdf");
+}
+
 
     /**
      * Show the form for editing the specified resource.

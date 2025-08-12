@@ -14,6 +14,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Grid;
@@ -526,6 +527,14 @@ class PlanillaZafraResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                 Action::make('imprimir')
+                ->label('Imprimir')
+                ->icon('heroicon-o-printer')
+                ->url(fn ($record) => route('planilla-zafra.pdf', $record->id))
+                ->openUrlInNewTab(), // Abre el PDF en nueva pestaña
+
+
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
