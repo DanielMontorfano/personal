@@ -30,8 +30,9 @@ class SectorResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
     protected static ?string $navigationLabel = 'Sectores';
     protected static ?string $modelLabel = 'Sector';
-    
     protected static ?string $pluralModelLabel = 'Sectores';
+    protected static ?string $navigationGroup = 'Administración'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 2; // ✅ Más simple que el método
   
     
 

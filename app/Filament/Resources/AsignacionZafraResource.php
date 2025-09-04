@@ -16,16 +16,18 @@ use Filament\Resources\Pages\ListAsignacionZafras;
 class AsignacionZafraResource extends Resource
 {
     protected static ?string $model = AsignacionZafra::class;
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
-    protected static ?string $navigationLabel = 'Asignaciones de Zafra';
-    protected static ?string $modelLabel = 'Asignación';
-    protected static ?string $pluralModelLabel = 'Asignaciones';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static ?string $navigationLabel = 'Asignaciones de puestos';
+    protected static ?string $modelLabel = 'Asignación del puesto';
+    protected static ?string $pluralModelLabel = 'Asignaciones de puestos'; 
+    protected static ?string $navigationGroup = 'Zafra'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 2; // ✅ Más simple que el método
 
-    // Ocultar creación/edición directa (solo se crean desde PlanillaZafra)
+    /*// Ocultar creación/edición directa (solo se crean desde PlanillaZafra)
     public static function canCreate(): bool
     {
         return false;
-    }
+    }*/
 
     public static function form(Form $form): Form
     {

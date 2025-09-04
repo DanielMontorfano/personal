@@ -12,10 +12,14 @@ class Solicitante extends Model
     protected $fillable = [
         'nombre_completo',
         'cargo',
-        'sector',
+        'sector_id',
     ];
 
 
+    public function sector()
+    {
+        return $this->belongsTo(\App\Models\Sector::class);
+    }
 
     public function planillasZafra()
 {

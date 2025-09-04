@@ -20,12 +20,22 @@ use Filament\Tables\Columns\TextColumn;
 use App\Models\Solicitante;
 use Illuminate\Database\Eloquent\Collection; // Añade esta línea
 
-
 class PlanillaIngresoResource extends Resource
 {
     protected static ?string $model = PlanillaIngreso::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    // 👇 Agregar estos métodos para la navegación
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Personal transitorio';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1; // Primer elemento en el grupo Personal transitorio
+    }
 
     public static function form(Form $form): Form
     {

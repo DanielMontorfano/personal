@@ -20,7 +20,7 @@ class OperariosPorSectorChart extends ChartWidget
             })
             ->with('solicitante')
             ->get()
-            ->groupBy(fn ($ingreso) => $ingreso->solicitante?->sector ?? 'Sin sector')
+            ->groupBy(fn ($ingreso) => $ingreso->solicitante?->sector?->nombre ?? 'Sin sector')
             ->map(fn ($ingresos) => $ingresos->count());
 
         // 🎨 Colores fijos por sector (normalizados)

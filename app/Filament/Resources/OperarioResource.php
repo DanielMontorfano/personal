@@ -18,10 +18,12 @@ use Filament\Forms\Components\{TextInput, DatePicker, Select};
 class OperarioResource extends Resource
 {
     protected static ?string $model = Operario::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationLabel = 'Operarios';
+    protected static ?string $modelLabel = 'Operarios';
+    protected static ?string $pluralModelLabel = 'Operarios';
+    protected static ?string $navigationGroup = 'Administración'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 4; // ✅ Más simple que el método
     
     public static function form(Form $form): Form
     {

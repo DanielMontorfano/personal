@@ -17,11 +17,23 @@ class ZafraResource extends Resource
 {
     protected static ?string $model = Zafra::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-calendar';
-
+    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
+    protected static ?string $navigationLabel = 'Definir duración';
     protected static ?string $modelLabel = 'Zafra';
+    protected static ?string $pluralModelLabel = 'Definiciones de zafras'; 
+    protected static ?string $navigationGroup = 'Zafra'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 3; // ✅ Más simple que el método
 
-    protected static ?string $pluralModelLabel = 'Zafras';
+    // 👇 Agregar estos métodos para la navegación
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Zafra';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 3; // Tercer elemento en el grupo Zafra
+    }
 
     public static function form(Form $form): Form
     {

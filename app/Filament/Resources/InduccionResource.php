@@ -15,9 +15,14 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class InduccionResource extends Resource
 {
+    
     protected static ?string $model = Induccion::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $navigationLabel = 'Induccion';
+    protected static ?string $modelLabel = 'Induccion';
+    protected static ?string $pluralModelLabel = 'Inducciones';
+    protected static ?string $navigationGroup = 'Recursos'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 3; // ✅ Más simple que el método
 
     public static function form(Form $form): Form
     {

@@ -16,10 +16,14 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ExamenMedicoResource extends Resource
 {
     protected static ?string $model = ExamenMedico::class;
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
+    protected static ?string $navigationLabel = 'Examen médico';
+    protected static ?string $modelLabel = 'Examen médico';
+    protected static ?string $pluralModelLabel = 'Examenes médicos';
+    protected static ?string $navigationGroup = 'Recursos'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 4; // ✅ Más simple que el método
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-    public static function form(Form $form): Form
+public static function form(Form $form): Form
     {
         return $form
             ->schema([

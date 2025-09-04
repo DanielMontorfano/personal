@@ -17,12 +17,14 @@ use Filament\Tables\Actions\DeleteBulkAction;
 class AutorizacionResource extends Resource
 {
     protected static ?string $model = Autorizacion::class;
-
-    protected static ?string $navigationGroup = 'Recursos';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
     protected static ?string $navigationLabel = 'Autorizaciones';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $modelLabel = 'Autorizaciones';
+    protected static ?string $pluralModelLabel = 'utorizaciones';
+    protected static ?string $navigationGroup = 'Recursos'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 2; // ✅ Más simple que el método
 
-    protected static ?int $navigationSort = 2;
+   
 
     // Definición del formulario
     public static function form(Form $form): Form

@@ -18,4 +18,9 @@ class Sector extends Model
     }
 
     
+    public function solicitantes()
+    {
+        return $this->hasMany(\App\Models\Solicitante::class);
+    }
+    
 }

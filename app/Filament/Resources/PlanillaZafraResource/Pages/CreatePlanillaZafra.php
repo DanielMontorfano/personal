@@ -71,7 +71,7 @@ class CreatePlanillaZafra extends CreateRecord
         Log::info('Datos del formulario antes de mutate:', $data);
         
         // Aplicar la transformación del Resource
-        $transformedData = PlanillaZafraResource::transformFormData($data);
+       $transformedData = PlanillaZafraResource::transformFormData($data);
         
         Log::info('Datos transformados:', $transformedData);
         

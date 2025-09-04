@@ -18,16 +18,16 @@ class EstadoPlantaStats extends BaseWidget
             })->count();
 
         // 2. Sectores activos (diferentes solicitantes con operarios dentro)
-        $sectoresActivos = Ingreso::whereDate('fecha_ingreso', '<=', today())
-            ->where(function ($q) {
-                $q->whereNull('fecha_baja')
-                  ->orWhere('fecha_baja', '>=', today());
-            })
-            ->with('solicitante')
-            ->get()
-            ->pluck('solicitante.sector')
-            ->unique()
-            ->count();
+$sectoresActivos = Ingreso::whereDate('fecha_ingreso', '<=', today())
+    ->where(function ($q) {
+        $q->whereNull('fecha_baja')
+          ->orWhere('fecha_baja', '>=', today());
+    })
+    ->with('solicitante.sector') // También agrega esto para cargar la relación
+    ->get()
+    ->pluck('solicitante.sector.nombre') // ← CAMBIAR ESTA LÍNEA
+    ->unique()
+    ->count();
 
         // 3. Total de ingresos registrados
         $totalIngresos = Ingreso::count();

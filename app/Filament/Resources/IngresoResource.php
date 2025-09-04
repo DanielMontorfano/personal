@@ -27,8 +27,23 @@ use App\Services\IngresoService;
 class IngresoResource extends Resource
 {
     protected static ?string $model = Ingreso::class;
+    protected static ?string $navigationIcon = 'heroicon-o-document-magnifying-glass';
+    protected static ?string $navigationLabel = 'Ingresos';
+    protected static ?string $modelLabel = 'Ingreso';
+    protected static ?string $pluralModelLabel = 'Ingresos';
+    protected static ?string $navigationGroup = 'Personal transitorio'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 2; // ✅ Más simple que el método
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // 👇 Agregar estos métodos para la navegación
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Personal transitorio';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 2; // Segundo elemento en el grupo Personal transitorio
+    }
 
     public static function form(Form $form): Form
     {

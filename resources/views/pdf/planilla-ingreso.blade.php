@@ -85,7 +85,8 @@
 <tr>
     <th rowspan="2" style="width: 2%; text-align: center">N°</th>
     <th colspan="4" style="text-align: center; width: 45%;">
-        <strong>A</strong> - Sección / AREA: {{ $planilla->solicitante->sector }}
+        <strong>A</strong> - Sección / AREA: {{ $planilla->solicitante->sector->nombre }}
+
     </th>
     <th colspan="2" style="text-align: center; width: 14%;"><strong>B</strong> - Medicina Lab.</th>
     <th colspan="1" style="text-align: center; width: 7%;"><strong>C</strong> - HyS</th>

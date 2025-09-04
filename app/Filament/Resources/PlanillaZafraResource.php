@@ -37,7 +37,9 @@ class PlanillaZafraResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
     protected static ?string $navigationLabel = 'Planillas de Zafra';
     protected static ?string $modelLabel = 'Planilla de Zafra';
-    protected static ?string $pluralModelLabel = 'Planillas de Zafra';
+    protected static ?string $pluralModelLabel = 'Planillas de Zafra'; 
+    protected static ?string $navigationGroup = 'Zafra'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 1; // ✅ Más simple que el método
 
     public static function form(Form $form): Form
     {
