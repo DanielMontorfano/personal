@@ -191,7 +191,7 @@ class IngresoResource extends Resource
             ->columns([
                 TextColumn::make('operario.nombre_completo')->label('Operario')->sortable()->searchable(),
                 TextColumn::make('solicitante.nombre_completo')->label('Solicitante')->sortable()->searchable(),
-                TextColumn::make('solicitante.sector')->label('Sección')->sortable()->searchable(),
+                TextColumn::make('sector.nombre')->label('Sección')->sortable()->searchable(), // ← Corregido
                 TextColumn::make('fecha_ingreso')->date('d/m/Y')->sortable(),
                 TextColumn::make('fecha_baja')->date('d/m/Y')->sortable(),
                 TextColumn::make('observaciones')->limit(50)->wrap(),

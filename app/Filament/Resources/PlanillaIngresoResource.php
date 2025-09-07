@@ -23,19 +23,18 @@ use Illuminate\Database\Eloquent\Collection; // Añade esta línea
 class PlanillaIngresoResource extends Resource
 {
     protected static ?string $model = PlanillaIngreso::class;
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static ?string $navigationLabel = 'Planillas de Ingreso';
+    protected static ?string $modelLabel = 'Planilla de Ingreso';
+    protected static ?string $pluralModelLabel = 'Planillas de Ingresos'; 
+    protected static ?string $navigationGroup = 'Zafra'; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 2; // ✅ Más simple que el método
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    // 👇 Agregar estos métodos para la navegación
-    public static function getNavigationGroup(): ?string
-    {
-        return 'Personal transitorio';
-    }
 
-    public static function getNavigationSort(): ?int
-    {
-        return 1; // Primer elemento en el grupo Personal transitorio
-    }
+
+
+
 
     public static function form(Form $form): Form
     {
@@ -104,6 +103,11 @@ class PlanillaIngresoResource extends Resource
                         // Eliminar registros relacionados primero
                         $record->ingresos()->delete();
                     }),
+                \Filament\Tables\Actions\Action::make('imprimir')
+                    ->label('Imprimir')
+                    ->icon('heroicon-o-printer')
+                    ->url(fn ($record) => route('planilla.pdf', $record->id))
+                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

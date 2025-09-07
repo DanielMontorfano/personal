@@ -25,8 +25,6 @@ use Filament\Tables\Columns\TextColumn;
 class SectorResource extends Resource
 {
     protected static ?string $model = Sector::class;
-
-    
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
     protected static ?string $navigationLabel = 'Sectores';
     protected static ?string $modelLabel = 'Sector';

@@ -21,7 +21,7 @@ class AsignacionZafraResource extends Resource
     protected static ?string $modelLabel = 'Asignación del puesto';
     protected static ?string $pluralModelLabel = 'Asignaciones de puestos'; 
     protected static ?string $navigationGroup = 'Zafra'; // ✅ Más simple que el método
-    protected static ?int $navigationSort = 2; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 3; // ✅ Más simple que el método
 
     /*// Ocultar creación/edición directa (solo se crean desde PlanillaZafra)
     public static function canCreate(): bool

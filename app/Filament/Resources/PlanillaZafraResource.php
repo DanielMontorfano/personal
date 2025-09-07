@@ -82,9 +82,9 @@ class PlanillaZafraResource extends Resource
                                     ->searchable()
                                     ->preload(),
                                 
-                                TextInput::make('numero')
-                                    ->label('Número de Planilla')
-                                    ->maxLength(191),
+                              //  TextInput::make('numero')
+                               //     ->label('Número de Planilla')
+                                 //   ->maxLength(191),
                             ]),
                         
                         Textarea::make('observaciones')
@@ -487,7 +487,7 @@ class PlanillaZafraResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('numero')
+                Tables\Columns\TextColumn::make('id')
                     ->label('Número')
                     ->searchable()
                     ->sortable(),

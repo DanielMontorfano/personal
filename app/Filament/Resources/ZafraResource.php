@@ -22,7 +22,7 @@ class ZafraResource extends Resource
     protected static ?string $modelLabel = 'Zafra';
     protected static ?string $pluralModelLabel = 'Definiciones de zafras'; 
     protected static ?string $navigationGroup = 'Zafra'; // ✅ Más simple que el método
-    protected static ?int $navigationSort = 3; // ✅ Más simple que el método
+    protected static ?int $navigationSort = 5; // ✅ Más simple que el método
 
     // 👇 Agregar estos métodos para la navegación
     public static function getNavigationGroup(): ?string
