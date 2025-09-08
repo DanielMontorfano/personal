@@ -41,8 +41,8 @@ class AsignacionZafraResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('planillaZafra.numero')
-                    ->label('Planilla')
+                Tables\Columns\TextColumn::make('planilla.id')
+                    ->label('Nº de planilla')
                     ->sortable()
                     ->searchable(),
                 
@@ -58,14 +58,18 @@ class AsignacionZafraResource extends Resource
                 Tables\Columns\TextColumn::make('turno')
                     ->label('Turno')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'Mañana' => 'info',
-                        'Tarde' => 'warning',
-                        'Noche' => 'dark',
-                    }),
+                ->color(fn (string $state): string => match ($state) {
+                    'Mañana' => 'success',
+                    'Tarde' => 'warning',
+                    'Noche' => 'info',// ← Rojo (para ver si es problema del color purple)
+                }),
                 
-                Tables\Columns\TextColumn::make('categoria_asignada')
-                    ->label('Categoría')
+                Tables\Columns\TextColumn::make('operario.categoria')
+                    ->label('Cat. Op.')
+                    ->alignCenter(),
+
+                Tables\Columns\TextColumn::make('puesto.categoria')
+                    ->label('Cat. Puesto')
                     ->alignCenter(),
                 
                 Tables\Columns\IconColumn::make('ingresado')
@@ -89,9 +93,7 @@ class AsignacionZafraResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(), // Solo lectura
             ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ])
+            
             ->defaultSort('created_at', 'desc');
     }
 

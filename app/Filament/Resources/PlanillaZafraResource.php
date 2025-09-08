@@ -491,20 +491,22 @@ class PlanillaZafraResource extends Resource
                     ->label('Número')
                     ->searchable()
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('fecha')
+                    ->label('Fecha')
+                    ->date('d/m/Y')
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('solicitante.nombre_completo')
+                    ->label('Solicitante')
+                    ->searchable(),
                 
                 Tables\Columns\TextColumn::make('zafra.nombre')
                     ->label('Zafra')
                     ->searchable()
                     ->sortable(),
                 
-                Tables\Columns\TextColumn::make('fecha')
-                    ->label('Fecha')
-                    ->date('d/m/Y')
-                    ->sortable(),
-                
-                Tables\Columns\TextColumn::make('solicitante.nombre_completo')
-                    ->label('Solicitante')
-                    ->searchable(),
+
                 
                 Tables\Columns\TextColumn::make('asignaciones_count')
                     ->label('Asignaciones')
@@ -545,7 +547,7 @@ class PlanillaZafraResource extends Resource
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    ->label('Nueva Planilla')
+                    ->label('Crear Nueva Planilla de Zafra')
                     ->icon('heroicon-o-plus')
                     ->modalHeading('Crear Nueva Planilla de Zafra'),
             ])

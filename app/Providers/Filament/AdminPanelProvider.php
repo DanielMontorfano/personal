@@ -28,18 +28,33 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->brandName('Oficina técnica') // 👈 ¡ESTA LÍNEA!
+            ->brandName('Ingenio Río Grande S.A.') // 👈 ¡ESTA LÍNEA!
             ->login()
             ->colors([
                 'primary' => Color::Blue,
             ])
+            // 👇 AGREGAR ESTO PARA EL PIE DE PÁGINA
+        ->renderHook('panels::body.end', fn () => new HtmlString('
+            <div style="
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                padding: 0.5rem 1rem;
+                background: rgba(0,0,0,0.05);
+                color: #6b7280;
+                font-size: 0.75rem;
+                border-top-left-radius: 0.5rem;
+            ">
+                @MandiocaSoft
+            </div>
+        '))
 ->renderHook('panels::head.end', fn() => new HtmlString('
     <style>
         /* Cambiar color y tamaño del brand name */
         .fi-logo { 
             color: #9333ea !important; /* 👈 ¡QUITÉ EL PUNTO Y COMA EXTRA! */
             font-weight: bold;
-            font-size: 2.5rem !important; /* 24px */
+            font-size: 2.rrem !important; /* 24px */
         }
         
         /* Para el topbar */
@@ -50,8 +65,8 @@ class AdminPanelProvider extends PanelProvider
         
         /* Para el sidebar */
         .fi-sidebar .fi-logo {
-            color: #eef116ff !important;
-            font-size: 2.0rem !important; /* 18px */
+            color: #a7703cff !important;
+            font-size: 1.5rem !important; /* 18px */
         }
         
         /* Para los grupos de navegación (Administración, etc.) */

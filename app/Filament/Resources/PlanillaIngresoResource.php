@@ -75,13 +75,15 @@ class PlanillaIngresoResource extends Resource
     {
         return $table
             ->columns([
+
+
+                TextColumn::make('numero')
+                    ->label('Número')
+                    ->sortable(),
+
                 TextColumn::make('fecha')
                     ->label('Fecha')
                     ->date('d/m/Y')
-                    ->sortable(),
-    
-                TextColumn::make('numero')
-                    ->label('Número')
                     ->sortable(),
     
                 TextColumn::make('solicitante.nombre_completo')

@@ -43,4 +43,5 @@ class AsignacionZafra extends Model
     {
         return $this->belongsTo(Puesto::class, 'puesto_id');
     }
+    
 }
