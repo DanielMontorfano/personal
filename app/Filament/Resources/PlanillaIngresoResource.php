@@ -105,7 +105,7 @@ class PlanillaIngresoResource extends Resource
                         // Eliminar registros relacionados primero
                         $record->ingresos()->delete();
                     }),
-                \Filament\Tables\Actions\Action::make('imprimir')
+                \Filament\Tables\Actions\Action::make('Imprimir')
                     ->label('Imprimir')
                     ->icon('heroicon-o-printer')
                     ->url(fn ($record) => route('planilla.pdf', $record->id))

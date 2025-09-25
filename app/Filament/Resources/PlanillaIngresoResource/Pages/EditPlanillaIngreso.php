@@ -16,7 +16,7 @@ class EditPlanillaIngreso extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('Ver PDF')
+            Action::make('Imprimir')
                 ->icon('heroicon-o-printer')
                 ->url(fn () => route('planilla.pdf', ['id' => $this->record->id]))
                 ->openUrlInNewTab(),
