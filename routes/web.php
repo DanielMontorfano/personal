@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\PlanillaIngresoPdfController;
 use App\Http\Controllers\PlanillaZafraPdfController; // Añade esta línea
+use App\Http\Controllers\ReportesHorasExtraPdfController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,5 +28,11 @@ Route::get('/planilla-ingreso/{id}/pdf', [PlanillaIngresoPdfController::class, '
 // Nueva ruta para Planilla Zafra (sin middleware):
 Route::get('/planilla-zafra/{id}/pdf', [PlanillaZafraPdfController::class, 'show'])
     ->name('planilla-zafra.pdf');
+
+
+
+Route::get('/reportes-horas-extra/{id}/pdf', [ReportesHorasExtraPdfController::class, 'show'])
+    ->name('reportes-horas-extra.pdf');
+
 
 require __DIR__.'/auth.php';

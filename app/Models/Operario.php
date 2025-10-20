@@ -35,6 +35,14 @@ class Operario extends Model
         return $this->hasMany(Ingreso::class);
     }
 
+    // Independientemente del sector saignado por tarja, el puesto es definido por los jefes en la tabla Puesto 
+
+public function puesto()
+{
+    return $this->belongsTo(\App\Models\Puesto::class, 'puesto_id');
+}
+
+
     // Relación como solicitante
     public function ingresosSolicitados()
     {
@@ -45,5 +53,12 @@ class Operario extends Model
 public function asignacionesZafra()
 {
     return $this->hasMany(AsignacionZafra::class);
+}
+
+
+public function memosMencionados()
+{
+    return $this->belongsToMany(\App\Models\Memo::class, 'memo_operario', 'operario_id', 'memo_id')
+                ->withTimestamps();
 }
 }

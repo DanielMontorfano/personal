@@ -132,20 +132,7 @@ class AdminPanelProvider extends PanelProvider
                     ->label('Recursos'),
             ])
             // 👇 Personalizar el orden de los items del menú
-            ->resources([
-                \App\Filament\Resources\AsignacionZafraResource::class,
-                \App\Filament\Resources\PlanillaZafraResource::class,
-                \App\Filament\Resources\ZafraResource::class,
-                \App\Filament\Resources\PlanillaIngresoResource::class,
-                \App\Filament\Resources\IngresoResource::class,
-                \App\Filament\Resources\SolicitanteResource::class,
-                \App\Filament\Resources\SectorResource::class,
-                \App\Filament\Resources\OperarioResource::class,
-                \App\Filament\Resources\PuestoResource::class,
-                \App\Filament\Resources\ExamenMedicoResource::class,
-                \App\Filament\Resources\InduccionResource::class,
-                \App\Filament\Resources\AutorizacionResource::class,
-            ])
+
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

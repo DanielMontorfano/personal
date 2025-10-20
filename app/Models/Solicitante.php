@@ -25,4 +25,16 @@ class Solicitante extends Model
 {
     return $this->hasMany(PlanillaZafra::class);
 }
+
+
+public function memosEnviados()
+{
+    return $this->hasMany(\App\Models\Memo::class, 'de_solicitante_id');
+}
+
+public function memosRecibidos()
+{
+    return $this->belongsToMany(\App\Models\Memo::class, 'memo_solicitante', 'solicitante_id', 'memo_id')
+                ->withTimestamps();
+}
 }
